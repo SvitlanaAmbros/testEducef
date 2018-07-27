@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>Educef</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="lib/animate.css">
+	<script src="lib/angular.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap-select.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="lib/bootstrap-select.js"></script>
+	<script src="js/courses.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module("App", []);
+
+		app.controller("AppContr", function($scope){
+			$scope.courses=coursesApp;
+			$scope.menuItem = "Home";
+			$scope.selectedMenuClass = "menu__item_chosen";
+			$scope.menuClass = "menu__item_notchosen";
+			$scope.menu = menu;
+			$scope.updateMenuItem = function(item){
+				$scope.menuItem = item;
+			}
+		});
+	</script>
+</head>
+<body ng-controller="AppContr">
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<img src="img/logo.jpg" alt="logo" class="logo animated wobble">
+				</div>
+				<div class="col-lg-1">
+					<div class="categories d-flex">
+						<a href="#" class="header__icon"><i class="fa fa-question"></i></a>
+						<p class="categories__title">Categories</p>
+					</div>
+				</div>
+				<div class="col-lg-3 ">
+					<div class="search d-flex">
+						<input type="text" placeholder="Search your course..." class="search-course ">
+						<span class="search__icon ml-auto"><i class="fa fa-search"></i></span>
+					</div>
+				</div>
+				<div class="col-lg-1">
+					<div class="icons d-flex ">
+						<a href="#" class="header__icon"><i class="fa fa-heart"></i></a>
+						<a href="#" class="header__icon"><i class="fa fa-shopping-cart"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<input type="button" value="Become an instructor" class="button-instr">
+				</div>
+				<div class="col-lg-2">
+					<div class="buttons d-flex">
+						<a href="">Sign in</a>
+						<a href="">Sign up</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="menu-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<nav>
+						<ul class="menu" ng-repeat="item in menu">
+							<li class="menu__item" ng-class="menuItem == item ? selectedMenuClass : menuClass" >
+							<a href="#" ng-click="updateMenuItem(item)">{{item}}</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="filters">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 d-flex">
+					<p class="title_left mr-auto">Active filters</p>
+					<p class="title_right "><span>Results:</span> 980 matches</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-5">
+					<div class="buttons-def d-flex">
+						<div class="button-def__elem d-flex">
+							<span class="item__icon">
+								<i class="fa fa-times-circle"></i>
+							</span>
+							<input type="button" class="button-def__item" value="Default">
+						</div>
+						<div class="button-def__elem d-flex">
+							<span class="item__icon">
+								<i class="fa fa-times-circle"></i>
+							</span>
+							<input type="button" class="button-def__item" value="Default">
+						</div>
+						<div class="button-def__elem d-flex">
+							<span class="item__icon">
+								<i class="fa fa-times-circle"></i>
+							</span>
+							<input type="button" class="button-def__item" value="Default">
+						</div>
+						<div class="button-def__elem d-flex">
+							<span class="item__icon">
+								<i class="fa fa-times-circle"></i>
+							</span>
+							<input type="button" class="button-def__item" value="Default">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">
+					<select title="Topics" class="selectpicker show-menu-arrow filter__select ">
+					  <option>Programming</option>
+					  <option>Design</option>
+					  <option>Web development</option>
+					  <option>Mobile app</option>
+					  <option>Process</option>
+					</select>
+				</div>
+				<div class="col-lg-3">
+					<select title="Topics" class="selectpicker show-menu-arrow filter__select ">
+					  <option>Programming</option>
+					  <option>Design</option>
+					  <option>Web development</option>
+					  <option>Mobile app</option>
+					  <option>Process</option>
+					</select>
+				</div>
+				<div class="col-lg-3">
+					<select title="Topics" class="selectpicker show-menu-arrow filter__select ">
+					  <option>Programming</option>
+					  <option>Design</option>
+					  <option>Web development</option>
+					  <option>Mobile app</option>
+					  <option>Process</option>
+					</select>
+				</div>
+				<div class="col-lg-3">
+					<select title="Topics" class="selectpicker show-menu-arrow filter__select ">
+					  <option>Programming</option>
+					  <option>Design</option>
+					  <option>Web development</option>
+					  <option>Mobile app</option>
+					  <option>Process</option>
+					</select>
+				</div>
+				<div class="col-lg-3">
+					<select title="Topics" class="selectpicker show-menu-arrow filter__select ">
+					  <option>Programming</option>
+					  <option>Design</option>
+					  <option>Web development</option>
+					  <option>Mobile app</option>
+					  <option>Process</option>
+					</select>
+				</div>
+				<div class="col-lg-3">
+					<select title="Topics" class="selectpicker show-menu-arrow filter__select ">
+					  <option>Programming</option>
+					  <option>Design</option>
+					  <option>Web development</option>
+					  <option>Mobile app</option>
+					  <option>Process</option>
+					</select>
+				</div>
+				<div class="col-lg-3">
+					<select title="Topics" class="selectpicker show-menu-arrow filter__select ">
+					  <option>Programming</option>
+					  <option>Design</option>
+					  <option>Web development</option>
+					  <option>Mobile app</option>
+					  <option>Process</option>
+					</select>
+				</div>
+				<div class="col-lg-3">
+					<select title="Topics" class="selectpicker show-menu-arrow filter__select ">
+					  <option>Programming</option>
+					  <option>Design</option>
+					  <option>Web development</option>
+					  <option>Mobile app</option>
+					  <option>Process</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>	
+		<div class="container">	
+			<div class="row">	
+				<div class="col-lg-12">	
+					<div class="sortby d-flex">
+						<p class="sortby__text ml-auto">Sort by:</p>
+						<select class="selectpicker show-menu-arrow sortby__select">
+							<option></option>
+							<option></option>
+							<option></option>
+						</select>
+						<a href="#" class="sortby__icon"><i class="fa fa-list-ul"></i></a>
+						<a href="#" class="sortby__icon"><i class="fa fa-th"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="all-cards">
+		<div class="container">
+			<div class="row">
+				<div class="cards d-flex ml-auto mr-auto" 
+					ng-repeat="course in courses">
+					<div class="card__item" ng-style="{'background-image':'url(img/{{course.icon}}.jpg '}">
+						<input type="button" value="BUNDL" class="card__bundl">
+						<p class="card__name">
+								{{course.name}}
+						</p>
+						<div class="author d-flex">
+							<span class="author__icon"><i class="fa fa-user"></i>
+							</span>
+							<p class="author__name grey">
+									{{course.author.name}}<br> {{course.author.surname}}
+							</p>
+						</div>
+						<div class="price-likes d-flex">
+								<a href="#" class="price-likes__icon"><i class="fa fa-heart"></i></a>
+								<p class="price-likes__count grey">{{course.likes}}</p>
+								<a href="#" class="price-likes__icon"><i class="fa fa-users"></i></a>
+								<p class="price-likes__count grey">{{course.people}}</p>
+								<p class="price-likes__value green ml-auto">{{course.price}}</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</section>
+	<footer class=footer>
+		<div class="container">	
+			<div class="row">	
+				<div class="col-lg-5">	
+					<div class="contact">	
+						<img src="img/logo_footer.jpg" alt="" class="contact__logo ">
+						<p class="contact__info grey_footer">Education, Inc.<br>
+						3601 Seneca Street, New Your City<br>
+							<span class="contact__info_upper">ny 10010, USA
+							</span>
+						</p>
+						<div class="footer__icons d-flex">
+							<a href="#" class="contact__icon">
+								<i class="fa fa-linkedin"></i>
+							</a>
+							<a href="#" class="contact__icon contact__icon_center">
+								<i class="fa fa-facebook-f "></i>
+							</a>
+							<a href="#" class="contact__icon
+							contact__icon_center">
+								<i class="fa fa-twitter "></i>
+							</a>
+							<a href="#" class="contact__icon">
+								<i class="fa fa-google-plus
+							contact__icon_google"></i>
+							</a>
+							<a href="#" class="contact__icon">
+								<i class="fa fa-youtube"></i>
+							</a>
+							<a href="#" class="contact__icon">
+								<i class="fa fa-linkedin"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="system">
+						<p class="system__title white">System</p>
+						<ul class="system__items">
+							<li class="system__item grey_footer">Help center</li>
+							<li class="system__item grey_footer">Support forum</li>
+							<li class="system__item grey_footer">Affiliate</li>
+							<li class="system__item grey_footer">Explore</li>
+							<li class="system__item grey_footer">Pricing</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="system">
+						<p class="system__title white">More</p>
+						<ul class="system__items">
+							<li class="system__item grey_footer">About us</li>
+							<li class="system__item grey_footer">Blog</li>
+							<li class="system__item grey_footer">Sevice</li>
+							<li class="system__item grey_footer">Sign in</li>
+							<li class="system__item grey_footer">Sign up</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="system">
+						<p class="system__title white">Get in touch</p>
+						<ul class="system__items">
+							<li class="system__item grey_footer">Contact us if you need<br> 
+							help with anything</li>
+							<li class="system__item white">(+01) 2675 286897<br></li>
+							<li class="system__item white">(+01) 2675 286897</li>
+							<li class="system__item white">help@rubikthemes.com</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="footer__corp grey ">&#169 2018 Rubikthemes, all right<br>
+					reserved.
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
